@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/10/27 15:18:55 by acoezard         ###   ########.fr        #
+#    Updated: 2021/10/27 15:22:03 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ ${BINARIES}/%.o: ${SOURCES}/%.c
 	${CC} ${CFLAGS} $^ -o $@ ${CDEPENDENCIES}
 
 ${NAME}: libft ${OBJS}
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
+	${CC} ${CFLAGS} ${NAME} -o ${OBJS} ${CDEPENDENCIES}
 
 libft:
 	@echo "● Compilation des sources de la Libft..."
