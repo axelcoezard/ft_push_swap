@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/10/27 16:16:37 by acoezard         ###   ########.fr        #
+#    Updated: 2021/10/27 17:55:15 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,21 @@ OBJECTS			:=	./bin
 INCLUDES		:=	./includes
 
 LIBFT			:=	./libft
-LIBFT_INCLUDES	:= ${LIBFT}/includes
 
-SRCS			:=	push_swap.c
+SRCS			:=	push_swap.c \
+					ft_puterror_fd.c \
+					ft_stack/ft_stack_create.c \
+					ft_stack/ft_stack_push.c \
+					ft_stack/ft_stack_pop.c \
+					ft_stack/ft_stack_clear.c \
+					ft_table/ft_table_create.c \
+					ft_table/ft_table_clear.c
+
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
 CFLAGS			:=	-Wall -Wextra -Werror
-CINCLUDES		:=	-I ${INCLUDES} -I ${LIBFT_INCLUDES}
+CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L ${LIBFT} -lft
 
 BLACK			:=	"\033[1;30m"
@@ -37,12 +44,12 @@ EOC				:=	"\033[0;0m"
 
 ${OBJECTS}/%.o: ${SOURCES}/%.c
 	@mkdir -p $(dir $@)
-	@echo "● Compilation de "$(BLUE)"$<"$(EOC)" dans "$(BLUE)"$@"$(EOC)
-	@${CC} ${CFLAGS} ${CINCLUDES} -o $@ -c $< ${CDEPENDENCIES}
+	@echo "● Compilation de "$(BLUE)"${notdir $<}"$(EOC)"."
+	@${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
 
 ${NAME}: libft ${OBJS}
 	@echo $(GREEN)"● Compilation de ${NAME}..."$(EOC)
-	@${CC} ${CFLAGS} ${NAME} -o ${OBJS} ${CDEPENDENCIES}
+	@${CC} ${CFLAGS} -o ${NAME} ${CDEPENDENCIES} ${OBJS}
 
 libft:
 	@echo $(GREEN)"● Compilation des sources de la Libft..."$(EOC)

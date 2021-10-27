@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_stack_clear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 14:13:01 by acoezard          #+#    #+#             */
-/*   Updated: 2021/10/27 18:13:17 by acoezard         ###   ########.fr       */
+/*   Created: 2021/10/27 17:16:51 by acoezard          #+#    #+#             */
+/*   Updated: 2021/10/27 17:19:53 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_stack_clear(t_stack *stack)
 {
-	t_list	*a;
-	t_list	*b;
-	t_table *table;
-
-	(void) a;
-	(void) b;
-	(void) table;
-	(void) av;
-	if (ac == 1)
-		return (!ft_puterror_fd(1));
-	return (0);
+	if (stack == NULL)
+		return (0);
+	if (stack->peek != NULL)
+		ft_list_clear(&stack->peek, free);
+	free(stack);
+	return (1);
 }
