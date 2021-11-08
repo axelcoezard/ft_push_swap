@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_op_push.c                                       :+:      :+:    :+:   */
+/*   ft_op_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 13:21:18 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/08 16:46:52 by acoezard         ###   ########.fr       */
+/*   Created: 2021/11/08 16:41:00 by acoezard          #+#    #+#             */
+/*   Updated: 2021/11/08 16:46:15 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	ft_op_push(t_stack *from, t_stack *to)
+void	ft_rotate(t_stack *stack)
 {
-	t_list	*tmp;
+	void	*content;
 
-	if (from->size > 0)
+	if (stack != NULL)
 	{
-		tmp = ft_stack_pop(from);
-		ft_stack_push(to, tmp->content);
+		content = ft_stack_pop(stack);
+		ft_list_add_back(&(stack->peek), content);
 	}
 }
 
-void	ft_op_push_a(t_table *table)
+void	ft_rotate_a(t_table *table)
 {
-	ft_op_push(table->b, table->a);
-	ft_putstr_fd("pa\n", 1);
+	ft_rotate(table->a);
+	ft_printf("ra\n");
 }
 
-void	ft_op_push_b(t_table *table)
+void	ft_rotate_b(t_table *table)
 {
-	ft_op_push(table->a, table->b);
-	ft_putstr_fd("pb\n", 1);
+	ft_rotate(table->b);
+	ft_printf("rb\n");
 }
