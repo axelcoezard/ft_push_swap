@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/10/27 17:55:15 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/09 13:05:12 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,13 @@ INCLUDES		:=	./includes
 LIBFT			:=	./libft
 
 SRCS			:=	push_swap.c \
+					ft_utils.c \
 					ft_puterror_fd.c \
-					ft_stack/ft_stack_create.c \
-					ft_stack/ft_stack_push.c \
-					ft_stack/ft_stack_pop.c \
-					ft_stack/ft_stack_clear.c \
-					ft_table/ft_table_create.c \
-					ft_table/ft_table_clear.c
 
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
-CFLAGS			:=	-Wall -Wextra -Werror
+CFLAGS			:=	-Wall -Wextra -Werror -g
 CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L ${LIBFT} -lft
 

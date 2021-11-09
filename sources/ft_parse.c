@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterror.c                                      :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 17:52:48 by acoezard          #+#    #+#             */
-/*   Updated: 2021/10/27 17:54:43 by acoezard         ###   ########.fr       */
+/*   Created: 2021/11/09 11:32:00 by acoezard          #+#    #+#             */
+/*   Updated: 2021/11/09 13:04:30 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_puterror_fd(int fd)
+t_stack	ft_parse(int ac, char **av)
 {
-	ft_putstr_fd("Error\n", fd);
-	return (0);
+	t_stack stack;
+
+	stack = ft_stack_init();
+
+	return (stack);
 }

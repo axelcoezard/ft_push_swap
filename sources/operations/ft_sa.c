@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_table_clear.c                                   :+:      :+:    :+:   */
+/*   ft_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 17:08:16 by acoezard          #+#    #+#             */
-/*   Updated: 2021/10/27 17:10:12 by acoezard         ###   ########.fr       */
+/*   Created: 2021/11/09 13:13:13 by acoezard          #+#    #+#             */
+/*   Updated: 2021/11/09 13:17:13 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int		ft_table_clear(t_table *table)
+void	ft_sa(t_stack *stack)
 {
-	if (table == NULL)
-		return (0);
-	if (table->a != NULL)
-		ft_stack_clear(table->a);
-	if (table->b != NULL)
-		ft_stack_clear(table->b);
-	free(table);
-	return (1);
+	int	tmp;
+
+	tmp = *((int *) stack->a->next->content);
+	*((int *) stack->a->next->content) = *((int *) stack->a->content);
+	*((int *) stack->a->content) = tmp;
+	ft_putstr_fd("sa\n", 1);
 }
