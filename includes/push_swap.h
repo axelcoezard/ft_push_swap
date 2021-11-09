@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 13:22:28 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/09 13:27:00 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/includes/libft.h"
-
-# define STACK_A	0
-# define STACK_B	1
-# define STACK_BOTH	2
 
 struct s_stack
 {
