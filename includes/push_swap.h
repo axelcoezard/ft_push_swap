@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 13:08:21 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/09 13:22:28 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,19 @@ struct s_tab
 };
 typedef struct s_tab	t_tab;
 
-int		ft_puterror_fd(int fd);
+int		ft_puterror(int fd);
 
-t_stack *ft_stack_create(t_list	*peek, size_t size);
-void	ft_stack_push(t_stack *stack, void *content);
-void	*ft_stack_pop(t_stack *stack);
-int		ft_stack_clear(t_stack *stack);
+t_stack	ft_stack_init(void);
+t_tab	ft_stack_to_tab(t_list	*list);
 
-t_table	*ft_table_create();
-int		ft_table_clear(t_table *table);
-
-void	ft_op_push_a(t_table *table);
-void	ft_op_push_b(t_table *table);
-void	ft_op_rotate_a(t_table *table);
-void	ft_op_rotate_b(t_table *table);
-
-t_frag	ft_stack_to_frag(t_stack *stack);
-int		ft_get_middle(t_frag *frag);
-int		ft_is_sorted(t_frag	*frag);
-void	ft_selection_sort(t_frag *frag);
+void	ft_sa(t_stack *stack);
+void	ft_sb(t_stack *stack);
+void	ft_ss(t_stack *stack);
+void	ft_pb(t_stack *stack);
+void	ft_pa(t_stack *stack);
+void	ft_ra(t_stack *stack);
+void	ft_rb(t_stack *stack);
+void	ft_rra(t_stack *stack);
+void	ft_rrb(t_stack *stack);
 
 #endif
