@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/09 13:05:12 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/09 16:30:26 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,21 @@ LIBFT			:=	./libft
 
 SRCS			:=	push_swap.c \
 					ft_utils.c \
-					ft_puterror_fd.c \
+					ft_puterror.c \
+					stacks/ft_stack_init.c \
+					stacks/ft_stack_to_tab.c \
+					stacks/ft_stack_min.c \
+					operations/ft_pa.c \
+					operations/ft_pb.c \
+					operations/ft_ra.c \
+					operations/ft_rb.c \
+					operations/ft_rr.c \
+					operations/ft_rra.c \
+					operations/ft_rrb.c \
+					operations/ft_rrr.c \
+					operations/ft_sa.c \
+					operations/ft_sb.c \
+					operations/ft_ss.c
 
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 

@@ -6,13 +6,13 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 17:52:48 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 13:05:39 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/09 15:26:39 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_puterror_fd(void)
+int	ft_puterror(void)
 {
 	ft_putstr_fd("Error\n", 1);
 	return (0);

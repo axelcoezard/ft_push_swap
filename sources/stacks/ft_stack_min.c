@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rb.c                                            :+:      :+:    :+:   */
+/*   ft_stack_min.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 13:43:05 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 17:04:24 by acoezard         ###   ########.fr       */
+/*   Created: 2021/11/09 16:26:15 by acoezard          #+#    #+#             */
+/*   Updated: 2021/11/09 16:30:01 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	null(void *n)
+int	ft_stack_min(t_list *stack)
 {
-	(void) n;
+	t_list *current;
+	int min;
+
+	if (stack == NULL)
+		return (0);
+	current = stack;
+	min = *((int *) current->content);
+	while (current->next != NULL)
+	{
+		if (*((int *) current->next->content) < min)
+			min = *((int *) current->next->content);
+		current = current->next;
+	}
+	return (min);
 }
-
-void	ft_rb(t_stack *stack)
-{
-	t_list *next;
-	int		*tmp;
-
-	tmp = malloc(sizeof(int));
-	*tmp = *((int *) stack->b->content);
-	next = stack->b->next;
-	ft_list_add_back(&(stack->b), tmp);
-	ft_list_remove(stack->b, null);
-	stack->b = next;
-	ft_putstr_fd("rb\n", 1);
-}
-

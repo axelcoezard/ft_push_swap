@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 13:36:50 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/09 16:30:18 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ struct s_tab
 };
 typedef struct s_tab	t_tab;
 
-int		ft_puterror(int fd);
+int		ft_puterror(void);
 
 t_stack	ft_stack_init(void);
 t_tab	ft_stack_to_tab(t_list	*list);
+int		ft_stack_min(t_list *stack);
 
 void	ft_sa(t_stack *stack);
 void	ft_sb(t_stack *stack);
@@ -47,5 +48,9 @@ void	ft_rr(t_stack *stack);
 void	ft_rra(t_stack *stack);
 void	ft_rrb(t_stack *stack);
 void	ft_rrr(t_stack *stack);
+
+int		ft_get_middle(t_tab *tab);
+int		ft_is_sorted(t_tab	*tab);
+void	ft_selection_sort(t_tab *tab);
 
 #endif
