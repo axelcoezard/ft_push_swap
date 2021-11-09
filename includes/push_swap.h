@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 13:27:00 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/09 13:36:50 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ void	ft_pb(t_stack *stack);
 void	ft_pa(t_stack *stack);
 void	ft_ra(t_stack *stack);
 void	ft_rb(t_stack *stack);
+void	ft_rr(t_stack *stack);
 void	ft_rra(t_stack *stack);
 void	ft_rrb(t_stack *stack);
+void	ft_rrr(t_stack *stack);
 
 #endif
