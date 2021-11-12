@@ -6,15 +6,15 @@
 #    By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/12 21:24:02 by axelcoezard      ###   ########.fr        #
+#    Updated: 2021/11/12 22:21:03 by axelcoezard      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			:=	push_swap
 
 SOURCES			:=	./sources
-OBJECTS			:=	./bin
 INCLUDES		:=	./includes
+OBJECTS			:=	./bin
 
 LIBFT			:=	./libft
 
@@ -37,7 +37,7 @@ SRCS			:=	push_swap.c \
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
-CFLAGS			:=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS			:=	-Wall -Wextra -Werror
 CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L ${LIBFT} -lft
 
