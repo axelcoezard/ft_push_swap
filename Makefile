@@ -6,7 +6,7 @@
 #    By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/12 20:48:14 by axelcoezard      ###   ########.fr        #
+#    Updated: 2021/11/12 21:24:02 by axelcoezard      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRCS			:=	push_swap.c \
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
-CFLAGS			:=	-Wall -Wextra -Werror  -fsanitize=address
+CFLAGS			:=	-Wall -Wextra -Werror -fsanitize=address
 CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L ${LIBFT} -lft
 
@@ -54,6 +54,8 @@ ${OBJECTS}/%.o: ${SOURCES}/%.c
 	@echo "● Compilation de "$(BLUE)"${notdir $<}"$(EOC)"."
 	@${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
 
+all: ${NAME}
+
 ${NAME}: libft ${OBJS}
 	@echo $(GREEN)"● Compilation de ${NAME}..."$(EOC)
 	@${CC} ${CFLAGS} -o ${NAME} ${CDEPENDENCIES} ${OBJS}
@@ -61,8 +63,6 @@ ${NAME}: libft ${OBJS}
 libft:
 	@echo $(GREEN)"● Compilation des sources de la Libft..."$(EOC)
 	@make -C ${LIBFT}
-
-all: ${NAME}
 
 clean:
 	@echo ${GREEN}"● Supression des fichiers binaires (.o)..."$(EOC)
