@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rra.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:12:01 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/10 16:04:06 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/12 19:13:53 by axelcoezard      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 void	ft_rra(t_stack *stack)
 {
-	t_list	*head;
-	t_list	*tmp;
+	t_node *prev;
+	int		*tmp;
 
-	if (stack->a && stack->a->next)
-	{
-		head = stack->a;
-		while (stack->a->next->next)
-			stack->a = stack->a->next;
-		tmp = stack->a->next;
-		stack->a->next = NULL;
-		stack->a = head;
-		tmp->next = stack->a;
-		stack->a = tmp;
-		ft_putstr_fd("rra\n", 1);
-	}
+	tmp = malloc(sizeof(int));
+	*tmp = *((int *) stack->a->last->content);
+	prev = stack->a->last->prev;
+	prev->next = NULL;
+	list_add_front(stack->a, tmp);
+	list_remove(stack->a->last, free);
+	stack->a->last = prev;
+	ft_putstr_fd("rra\n", 1);
 }

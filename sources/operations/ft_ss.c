@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ss.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:19:21 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 15:07:26 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/12 19:27:08 by axelcoezard      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 void	ft_ss(t_stack *stack)
 {
+	t_list	*a;
+	t_list	*b;
 	int	tmpa;
 	int	tmpb;
 
-	tmpa = *((int *) stack->a->next->content);
-	tmpb = *((int *) stack->b ->next->content);
-	*((int *) stack->a->next->content) = *((int *) stack->a->content);
-	*((int *) stack->b->next->content) = *((int *) stack->b->content);
-	*((int *) stack->a->content) = tmpa;
-	*((int *) stack->b->content) = tmpb;
+	a = stack->a;
+	b = stack->b;
+	tmpa = *((int *) a->first->next->content);
+	tmpb = *((int *) b->first->next->content);
+	*((int *) a->first->next->content) = *((int *) a->first->content);
+	*((int *) b->first->next->content) = *((int *) b->first->content);
+	*((int *) a->first->content) = tmpa;
+	*((int *) b->first->content) = tmpb;
 	ft_putstr_fd("ss\n", 1);
 }
 

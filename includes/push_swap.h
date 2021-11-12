@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/12 13:50:06 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/12 18:53:16 by axelcoezard      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ struct s_stack
 {
 	t_list	*a;
 	t_list	*b;
-	t_list	*chunks;
 };
 typedef struct s_stack	t_stack;
 
 struct s_tab
 {
-	int		*values;
+	int		*arr;
 	int		size;
 };
 typedef struct s_tab	t_tab;
@@ -33,9 +32,6 @@ typedef struct s_tab	t_tab;
 int		ft_puterror(void);
 
 t_stack	ft_stack_init(void);
-t_tab	ft_stack_to_tab(t_list	*list);
-int		ft_stack_min(t_list *stack);
-t_tab	ft_stack_chunk(t_list *list, int count);
 
 void	ft_sa(t_stack *stack);
 void	ft_sb(t_stack *stack);
@@ -51,7 +47,6 @@ void	ft_rrr(t_stack *stack);
 
 int		ft_get_middle(t_tab *tab);
 int		ft_is_sorted(t_tab	*tab);
-t_tab	ft_tab_dup(t_tab *src);
 void	ft_selection_sort(t_tab *tab);
 
 #endif

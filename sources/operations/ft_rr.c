@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:59:43 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 15:05:21 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/12 19:14:10 by axelcoezard      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 void	ft_rr(t_stack *stack)
 {
+	t_node *nexta;
+	t_node *nextb;
 	int	*tmpa;
 	int	*tmpb;
 
 	tmpa = (int *) malloc(sizeof(int));
 	tmpb = (int *) malloc(sizeof(int));
-	*tmpa = *((int *) stack->a->content);
-	*tmpb = *((int *) stack->b->content);
-	ft_list_remove(stack->a, free);
-	ft_list_remove(stack->b, free);
-	ft_list_add_back(&(stack->a), &tmpa);
-	ft_list_add_back(&(stack->b), &tmpb);
+	*tmpa = *((int *) stack->a->first->content);
+	*tmpb = *((int *) stack->b->first->content);
+	nexta = stack->a->first->next;
+	nextb = stack->b->first->next;
+	list_add_back(stack->a, &tmpa);
+	list_add_back(stack->b, &tmpb);
+	list_remove(stack->a->first, free);
+	list_remove(stack->b->first, free);
+	stack->a->first = nexta;
+	stack->b->first = nextb;
 	ft_putstr_fd("rr\n", 1);
 }
