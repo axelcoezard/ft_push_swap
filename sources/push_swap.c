@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 14:13:01 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/10 15:49:30 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:57:19 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	debug(t_list *list)
 	}
 	ft_printf("\n");
 }
-
 void	sortA(t_stack *stack)
 {
 	t_tab T = ft_stack_to_tab(stack->a);
@@ -31,31 +30,30 @@ void	sortA(t_stack *stack)
 	{
 		ft_selection_sort(&T);
 		int	middle = ft_get_middle(&T);
+		int	*count = malloc(sizeof(int));
+		*count = 0;
 		t_list	*current = stack->a;
 		while (current != NULL)
 		{
-			ft_printf("== Middle: %d ==\n", middle);
-			debug(stack->a);
-			debug(stack->b);
 			int tmp = *((int *) current->content);
 			int tmpLast = *((int *) ft_list_last(current)->content);
-			ft_printf(
-				"Min: %d | First: %d | Last: %d\n",
-				ft_stack_min(stack->a),
-				tmp,
-				tmpLast
-			);
 			if (tmp == ft_stack_min(stack->a))
 			{
 				ft_pb(stack);
+				(*count)++;
+				ft_list_add_front(&(stack->chunks), count);
 				break;
 			}
 			if (tmp < middle)
-				ft_pb(stack);
+				ft_pb(stack), (*count)++;
 			else if (tmpLast < middle)
 				ft_rra(stack);
 			else
 				ft_ra(stack);
+			if (stack->chunks == NULL)
+				stack->chunks = ft_list_create(count);
+			else
+				ft_list_add_front(&(stack->chunks), count);
 			current = current->next;
 		}
 		T = ft_stack_to_tab(stack->a);
@@ -65,31 +63,26 @@ void	sortA(t_stack *stack)
 
 void	sortB(t_stack *stack)
 {
-	t_tab T = ft_stack_to_tab(stack->b);
-	while (!ft_is_sorted(&T))
+	t_list	*c_chunk = stack->chunks;
+	while (c_chunk != NULL)
 	{
-		ft_selection_sort(&T);
-		int	middle = ft_get_middle(&T);
-		t_list	*current = stack->b;
-		while (current != NULL)
+		int	count = *((int *) c_chunk->content);
+		int	i = 0;
+		while (i < count)
 		{
-			int tmp = *((int *) current->content);
-			if (tmp == ft_stack_min(stack->b))
-			{
-				ft_pa(stack);
-				debug(stack->a);
-				break;
-			}
-			if (tmp < middle)
+			t_tab chunk = ft_stack_chunk(stack->b, count);
+			t_tab dup_c = ft_tab_dup(&chunk);
+			ft_selection_sort(&dup_c);
+			int middle = ft_get_middle(&dup_c);
+			free(dup_c.values);
+			if (chunk.values[i] < middle)
 				ft_pa(stack);
 			else
 				ft_rb(stack);
-			debug(stack->a);
-			current = current->next;
+			i++;
 		}
-		T = ft_stack_to_tab(stack->b);
+		c_chunk = c_chunk->next;
 	}
-	free(T.values);
 }
 int	main(int ac, char **av)
 {
@@ -107,11 +100,13 @@ int	main(int ac, char **av)
 			ft_list_add_back(&(stack.a), tmp);
 		i++;
 	}
-	sortA(&stack);
 	debug(stack.a);
+	sortA(&stack);
+	debug(stack.chunks);
 	debug(stack.b);
-	//sortB(&stack);
+	sortB(&stack);
 	ft_list_clear(&(stack.a), free);
 	ft_list_clear(&(stack.b), free);
+	ft_list_clear(&(stack.chunks), free);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 09:36:35 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/09 13:25:04 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/12 13:36:04 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ int	ft_is_sorted(t_tab	*tab)
 		i++;
 	}
 	return (1);
+}
+
+t_tab	ft_tab_dup(t_tab *src)
+{
+	int		i;
+	t_tab	result;
+
+	result.values = ft_calloc(src->size, sizeof(int));
+	result.size = src->size;
+	i = 0;
+	while (i < src->size)
+		result.values[i] = src->values[i], i++;
+	return (result);
 }
 
 void	ft_selection_sort(t_tab *tab)
