@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rrb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:15:23 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/12 19:15:39 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/13 20:25:36 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_rrb(t_stack *stack)
 	prev = stack->b->last->prev;
 	prev->next = NULL;
 	list_add_front(stack->b, tmp);
-	list_remove(stack->b->last, free);
+	list_remove(stack->b, stack->b->last, free);
 	stack->b->last = prev;
 	ft_putstr_fd("rrb\n", 1);
 }

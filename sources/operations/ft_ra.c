@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ra.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:58:04 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 00:24:18 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/13 20:24:43 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_ra(t_stack *stack)
 	*tmp = *((int *) stack->a->first->content);
 	next = stack->a->first->next;
 	list_add_back(stack->a, tmp);
-	list_remove(stack->a->first, free);
+	list_remove(stack->a, stack->a->first, free);
 	stack->a->first = next;
 	ft_putstr_fd("ra\n", 1);
 }

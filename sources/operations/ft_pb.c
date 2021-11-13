@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:33:37 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 00:24:39 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/13 20:24:33 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_pb(t_stack *stack)
 	*tmp = *((int *) stack->a->first->content);
 	list_add_front(stack->b, tmp);
 	list = stack->a->first->next;
-	list_remove(stack->a->first, free);
+	list_remove(stack->a, stack->a->first, free);
 	stack->a->first = list;
 	ft_putstr_fd("pb\n", 1);
 }

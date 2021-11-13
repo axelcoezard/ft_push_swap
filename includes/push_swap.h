@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 00:25:17 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/13 21:56:31 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ typedef struct s_tab
 }	t_tab;
 
 int		ft_puterror(void);
-void	debug(t_list *list);
+
+int	check_int(const char *nptr);
+int	check_number(const char *nptr);
 
 t_stack	initialize_stack(void);
+t_stack parse_args(int ac, char **av);
 void	normalize_stack(t_list	*stack);
 void	sort_small_stack(t_stack *stacks);
 void	sort_big_stack(t_stack *stacks);

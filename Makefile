@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+         #
+#    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/13 00:19:26 by axelcoezard      ###   ########.fr        #
+#    Updated: 2021/11/13 22:28:21 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS			:=	push_swap.c \
 					ft_puterror.c \
 					ft_tab.c \
 					ft_stack.c \
+					ft_check.c \
+					ft_parse.c \
 					operations/ft_pa.c \
 					operations/ft_pb.c \
 					operations/ft_ra.c \
@@ -37,7 +39,7 @@ SRCS			:=	push_swap.c \
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
-CFLAGS			:=	-Wall -Wextra -Werror
+CFLAGS			:=	-Wall -Wextra -Werror -fsanitize=address
 CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L${LIBFT} -lft
 
@@ -52,26 +54,26 @@ EOC				:=	"\033[0;0m"
 ${OBJECTS}/%.o: ${SOURCES}/%.c
 	@mkdir -p $(dir $@)
 	@echo "● Compilation de "$(BLUE)"${notdir $<}"$(EOC)"."
-	${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
+	@${CC} ${CFLAGS} -o $@ -c $< ${CINCLUDES}
 
 all: ${NAME}
 
 ${NAME}: libft ${OBJS}
 	@echo $(GREEN)"● Compilation de ${NAME}..."$(EOC)
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${CDEPENDENCIES}
+	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${CDEPENDENCIES}
 
 libft:
 	@echo $(GREEN)"● Compilation des sources de la Libft..."$(EOC)
-	@make -C ${LIBFT}
+	@make -C ${LIBFT} --no-print-directory
 
 clean:
 	@echo ${GREEN}"● Supression des fichiers binaires (.o)..."$(EOC)
-	@make -C ${LIBFT} clean
+	@make -C ${LIBFT} clean --no-print-directory
 	@rm -rf ${OBJECTS}
 
 fclean: clean
 	@echo ${GREEN}"● Supression des executables et librairies..."$(EOC)
-	@make -C ${LIBFT} fclean
+	@make -C ${LIBFT} fclean --no-print-directory
 	@rm -f ${NAME}
 
 re: fclean all

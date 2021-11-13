@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 14:13:01 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 22:28:40 by acoezard         ###   ########.fr       */
+/*   Created: 2021/11/13 21:47:20 by acoezard          #+#    #+#             */
+/*   Updated: 2021/11/13 22:26:57 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+int	check_int(const char *nptr)
 {
-	t_stack	stacks;
+	int				nbr;
+	size_t			digits;
+	size_t			i;
 
-	stacks = parse_args(ac, av);
-	normalize_stack(stacks.a);
-	sort_big_stack(&stacks);
-	list_clear(stacks.a, free);
-	list_clear(stacks.b, free);
-	return (0);
+	i = 0;
+	nbr = 0;
+	digits = 0;
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+		i++;
+	while (ft_isdigit(nptr[i]))
+	{
+		digits++;
+		if ((nbr * 10 + (nptr[i] - '0')) / 10 != nbr)
+			return (0);
+		nbr = nbr * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (!nptr[i] && digits);
 }
