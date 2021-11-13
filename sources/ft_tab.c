@@ -6,7 +6,7 @@
 /*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 20:04:09 by axelcoezard       #+#    #+#             */
-/*   Updated: 2021/11/12 20:44:48 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/12 22:27:14 by axelcoezard      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_tab	convert_to_tab(t_list *stack)
 	size_t	i;
 
 	i = 0;
-	tab.v = malloc(stack->size * sizeof(int));
+	tab.v = (int *) malloc(stack->size * sizeof(int));
 	tab.size = stack->size;
 	current = stack->first;
 	while (current != NULL)
@@ -30,7 +30,7 @@ t_tab	convert_to_tab(t_list *stack)
 	return (tab);
 }
 
-size_t	find_index_in_tab(t_tab *tab, int	value)
+size_t	find_index_in_tab(t_tab *tab, int value)
 {
 	size_t	i;
 

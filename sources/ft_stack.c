@@ -6,7 +6,7 @@
 /*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 20:37:45 by axelcoezard       #+#    #+#             */
-/*   Updated: 2021/11/12 21:30:37 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/13 00:44:46 by axelcoezard      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	sort_big_stack(t_stack *stacks)
 	size_t	j;
 	size_t	size;
 
-	normalize_stack(stacks->a);
 	size = stacks->a->size;
 	max_bits = 0;
 	while ((size - 1) >> max_bits != 0)

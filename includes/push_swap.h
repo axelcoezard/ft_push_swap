@@ -6,7 +6,7 @@
 /*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/12 20:44:15 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/13 00:25:17 by axelcoezard      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 
 # include "../libft/includes/libft.h"
 
-struct s_stack
+typedef struct s_stack
 {
 	t_list	*a;
 	t_list	*b;
-};
-typedef struct s_stack	t_stack;
+}	t_stack;
 
-struct s_tab
+typedef struct s_tab
 {
 	int		*v;
 	size_t	size;
-};
-typedef struct s_tab	t_tab;
+}	t_tab;
 
 int		ft_puterror(void);
+void	debug(t_list *list);
 
 t_stack	initialize_stack(void);
 void	normalize_stack(t_list	*stack);
@@ -37,7 +36,7 @@ void	sort_small_stack(t_stack *stacks);
 void	sort_big_stack(t_stack *stacks);
 
 t_tab	convert_to_tab(t_list *stack);
-size_t	find_index_in_tab(t_tab *tab, int	value);
+size_t	find_index_in_tab(t_tab *tab, int value);
 void	sort_tab(t_tab *tab);
 
 void	ft_sa(t_stack *stack);
@@ -53,6 +52,6 @@ void	ft_rrb(t_stack *stack);
 void	ft_rrr(t_stack *stack);
 
 int		ft_get_middle(t_tab *tab);
-int		ft_is_sorted(t_tab	*tab);
+int		ft_is_sorted(t_tab *tab);
 
 #endif
