@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 16:20:10 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 21:56:31 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/13 23:39:38 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ typedef struct s_stack
 typedef struct s_tab
 {
 	int		*v;
-	size_t	size;
+	int		size;
 }	t_tab;
 
 int		ft_puterror(void);
 
 int	check_int(const char *nptr);
-int	check_number(const char *nptr);
+int	check_sorted(t_tab *tab);
 
 t_stack	initialize_stack(void);
 t_stack parse_args(int ac, char **av);
@@ -39,7 +39,7 @@ void	sort_small_stack(t_stack *stacks);
 void	sort_big_stack(t_stack *stacks);
 
 t_tab	convert_to_tab(t_list *stack);
-size_t	find_index_in_tab(t_tab *tab, int value);
+int		find_index_in_tab(t_tab *tab, int value);
 void	sort_tab(t_tab *tab);
 
 void	ft_sa(t_stack *stack);

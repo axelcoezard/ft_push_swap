@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/13 22:28:21 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/14 00:04:56 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS			:=	push_swap.c \
 					ft_stack.c \
 					ft_check.c \
 					ft_parse.c \
+					ft_sort.c \
 					operations/ft_pa.c \
 					operations/ft_pb.c \
 					operations/ft_ra.c \
@@ -39,7 +40,7 @@ SRCS			:=	push_swap.c \
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
-CFLAGS			:=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS			:=	-Wall -Wextra -Werror # -fsanitize=address
 CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L${LIBFT} -lft
 

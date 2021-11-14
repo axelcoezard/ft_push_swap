@@ -6,11 +6,25 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 21:47:20 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 22:26:57 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/13 23:53:15 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	check_sorted(t_tab *tab)
+{
+	int	i;
+
+	i = 0;
+	while (i + 1 < tab->size)
+	{
+		if (tab->v[i] > tab->v[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	check_int(const char *nptr)
 {
