@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 14:13:01 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/14 20:09:47 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:07:10 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int ac, char **av)
 	else
 		ft_puterror();
 	free(copy.v);
-	//list_clear(stacks.a, free);
+	list_clear(stacks.a, free);
+	list_clear(stacks.b, free);
 	return (0);
 }

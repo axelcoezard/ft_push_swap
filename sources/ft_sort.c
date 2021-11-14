@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 23:29:22 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/14 20:39:45 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:14:42 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@ void	sort_small_stack(t_stack *stacks)
 	last = *((int *) stacks->a->last->content);
 	if (stacks->a->size == 2 && first > last)
 		ft_ra(stacks);
-	if (stacks->a->size == 3)
+	else if (stacks->a->size == 3)
 		sort_3_stack(stacks);
-	if (stacks->a->size == 4)
+	else if (stacks->a->size == 4)
 		sort_4_or_5_stack(stacks, 1);
-	if (stacks->a->size == 5)
+	else if (stacks->a->size == 5)
 		sort_4_or_5_stack(stacks, 2);
 }
 

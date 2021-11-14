@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:12:01 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/14 00:01:23 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:42:53 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	ft_rra(t_stack *stack)
 {
+	t_node	*node;
 	int		*tmp;
 
 	tmp = malloc(sizeof(int));
 	*tmp = *((int *) stack->a->last->content);
-	list_remove(stack->a, stack->a->last, free);
+	node = stack->a->last->prev;
+	node->next = NULL;
+	stack->a->last = node;
 	list_add_front(stack->a, tmp);
 	ft_putstr_fd("rra\n", 1);
 }
