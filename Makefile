@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/14 00:04:56 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/14 21:15:16 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,13 +59,10 @@ ${OBJECTS}/%.o: ${SOURCES}/%.c
 
 all: ${NAME}
 
-${NAME}: libft ${OBJS}
+${NAME}: ${OBJS}
+	@make -C ${LIBFT} --no-print-directory
 	@echo $(GREEN)"● Compilation de ${NAME}..."$(EOC)
 	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${CDEPENDENCIES}
-
-libft:
-	@echo $(GREEN)"● Compilation des sources de la Libft..."$(EOC)
-	@make -C ${LIBFT} --no-print-directory
 
 clean:
 	@echo ${GREEN}"● Supression des fichiers binaires (.o)..."$(EOC)
@@ -79,4 +76,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all libft clean fclean re
+.PHONY:	all clean fclean re
