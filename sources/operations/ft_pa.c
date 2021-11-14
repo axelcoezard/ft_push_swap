@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:27:35 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 20:24:27 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:56:12 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ void	ft_pa(t_stack *stack)
 	stack->b->first = list;
 	ft_putstr_fd("pa\n", 1);
 }
-

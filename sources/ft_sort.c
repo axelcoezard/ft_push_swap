@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 23:29:22 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/14 01:05:07 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:39:45 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@ static void	sort_3_stack(t_stack *stacks)
 	if (first > second && second < third && first < third)
 		ft_sa(stacks);
 	else if (first > second && second > third)
-		ft_sa(stacks), ft_rra(stacks);
+	{
+		ft_sa(stacks);
+		ft_rra(stacks);
+	}
 	else if (first < second && second > third && first < third)
-		ft_sa(stacks), ft_ra(stacks);
+	{
+		ft_sa(stacks);
+		ft_ra(stacks);
+	}
 	else if (first > second && second < third && first > third)
 		ft_ra(stacks);
 	else if (first < second && second > third && first > third)
@@ -45,14 +51,17 @@ static void	sort_4_or_5_stack(t_stack *stacks, int median)
 	while (pb_count < median)
 	{
 		if (*((int *) a->first->content) < median)
-			ft_pb(stacks), pb_count++;
+		{
+			ft_pb(stacks);
+			pb_count++;
+		}
 		else
 			ft_ra(stacks);
 	}
 	sort_3_stack(stacks);
 	if (median > 1)
 	{
-		if(*((int *) b->first->content) < *((int *) b->last->content))
+		if (*((int *) b->first->content) < *((int *) b->last->content))
 			ft_sb(stacks);
 		ft_pa(stacks);
 	}

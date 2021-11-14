@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 21:24:17 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 23:46:56 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:40:22 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	parse_array(t_stack *stacks, int ac, char **av, int start)
 {
 	size_t	i;
+	int		*tmp;
 
 	i = start;
 	while (i < (size_t) ac)
@@ -24,7 +25,7 @@ static void	parse_array(t_stack *stacks, int ac, char **av, int start)
 			ft_puterror();
 			exit(1);
 		}
-		int	*tmp = malloc(sizeof(int));
+		tmp = malloc(sizeof(int));
 		*tmp = ft_atoi(av[i]);
 		list_add_back(stacks->a, tmp);
 		i++;

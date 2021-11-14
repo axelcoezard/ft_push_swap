@@ -6,11 +6,31 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 21:47:20 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 23:53:15 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 19:52:48 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	check_duplicates(t_tab *tab)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < tab->size)
+	{
+		j = i + 1;
+		while (j < tab->size)
+		{
+			if (tab->v[i] == tab->v[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	check_sorted(t_tab *tab)
 {

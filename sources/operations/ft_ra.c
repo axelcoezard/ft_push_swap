@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:58:04 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 20:24:43 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:54:38 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_ra(t_stack *stack)
 {
-	t_node *next;
+	t_node	*next;
 	int		*tmp;
 
 	tmp = malloc(sizeof(int));

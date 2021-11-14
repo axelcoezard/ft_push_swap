@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ss.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:19:21 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/12 19:27:08 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/14 20:55:24 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_ss(t_stack *stack)
 {
 	t_list	*a;
 	t_list	*b;
-	int	tmpa;
-	int	tmpb;
+	int		tmpa;
+	int		tmpb;
 
 	a = stack->a;
 	b = stack->b;
@@ -29,4 +29,3 @@ void	ft_ss(t_stack *stack)
 	*((int *) b->first->content) = tmpb;
 	ft_putstr_fd("ss\n", 1);
 }
-

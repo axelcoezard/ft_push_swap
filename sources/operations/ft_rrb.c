@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:15:23 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 20:25:36 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:56:22 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_rrb(t_stack *stack)
 {
-	t_node *prev;
+	t_node	*prev;
 	int		*tmp;
 
 	tmp = malloc(sizeof(int));

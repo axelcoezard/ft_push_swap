@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:16:03 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 20:25:51 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:55:35 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_rrr(t_stack *stack)
 {
-	t_node *preva;
-	t_node *prevb;
+	t_node	*preva;
+	t_node	*prevb;
 	int		*tmpa;
 	int		*tmpb;
 

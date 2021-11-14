@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:43:05 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/13 20:25:17 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:54:17 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	null(void *n)
 
 void	ft_rb(t_stack *stack)
 {
-	t_node *next;
+	t_node	*next;
 	int		*tmp;
 
 	tmp = malloc(sizeof(int));
@@ -30,4 +30,3 @@ void	ft_rb(t_stack *stack)
 	stack->b->first = next;
 	ft_putstr_fd("rb\n", 1);
 }
-

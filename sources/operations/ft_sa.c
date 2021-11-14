@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axelcoezard <axelcoezard@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:13:13 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/12 19:25:15 by axelcoezard      ###   ########.fr       */
+/*   Updated: 2021/11/14 20:56:02 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_sa(t_stack *stack)
 {
 	t_list	*a;
-	int	tmp;
+	int		tmp;
 
 	a = stack->a;
 	tmp = *((int *) a->first->next->content);
