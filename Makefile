@@ -6,7 +6,7 @@
 #    By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 14:02:21 by acoezard          #+#    #+#              #
-#    Updated: 2021/11/14 23:11:08 by acoezard         ###   ########.fr        #
+#    Updated: 2021/11/14 23:45:22 by acoezard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRCS			:=	push_swap.c \
 OBJS			:=	$(addprefix ${OBJECTS}/, $(SRCS:.c=.o))
 
 CC				:=	gcc
-CFLAGS			:=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS			:=	-Wall -Wextra -Werror
 CINCLUDES		:=	-I ${INCLUDES}
 CDEPENDENCIES	:=	-L${LIBFT} -lft
 
