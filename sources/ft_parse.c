@@ -6,7 +6,7 @@
 /*   By: acoezard <acoezard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 21:24:17 by acoezard          #+#    #+#             */
-/*   Updated: 2021/11/14 20:40:22 by acoezard         ###   ########.fr       */
+/*   Updated: 2021/11/15 11:28:05 by acoezard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ static void	parse_string(t_stack *stacks, char *arg)
 	while (words[i] != NULL)
 		i++;
 	parse_array(stacks, i, words, 0);
+	i = 0;
+	while (words[i] != NULL)
+		free(words[i++]);
 	free(words);
 }
 
