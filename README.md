@@ -6,4 +6,4 @@ Mon projet push_swap de 42.
 > Pour le réussir, vous devrez manipuler différents algorithmes de tri et choisir la (ou les ?) solution la plus appropriée pour un classement optimisé des données.
 
 ## Note
-![push_swap grade](https://badge42.herokuapp.com/api/project/acoezard/push_swap)
+![push_swap grade](https://badge42.vercel.app/api/v2/cl1kx405i014409ju8dq834q5/project/2391304)
